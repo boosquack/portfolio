@@ -18,7 +18,7 @@ export default function HackathonsSection() {
               <p className="text-muted-foreground mt-1 line-clamp-2" style={{ fontSize: '14px' }}>
                 {hackathon.description}
               </p>
-              {hackathon.links && hackathon.links.length > 0 && (
+              {"links" in hackathon && hackathon.links && hackathon.links.length > 0 && (
                 <div className="flex items-center gap-3 mt-2">
                   {hackathon.links.map((link, idx) => (
                     <Link

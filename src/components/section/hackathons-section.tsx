@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import { DATA } from "@/data/resume";
 
 export default function HackathonsSection() {
@@ -18,21 +17,6 @@ export default function HackathonsSection() {
               <p className="text-muted-foreground mt-1 line-clamp-2" style={{ fontSize: '14px' }}>
                 {hackathon.description}
               </p>
-              {"links" in hackathon && hackathon.links && hackathon.links.length > 0 && (
-                <div className="flex items-center gap-3 mt-2">
-                  {hackathon.links.map((link, idx) => (
-                    <Link
-                      href={link.href}
-                      key={idx}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono-meta text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
             </div>
             <span className="font-mono-meta text-muted-foreground flex-shrink-0">{hackathon.dates.match(/\d{4}/)?.[0]}</span>
           </div>

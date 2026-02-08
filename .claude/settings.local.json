@@ -15,7 +15,15 @@
       "Bash(winget:*)",
       "Bash(scoop:*)",
       "Bash(export PATH:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo create:*)",
+      "Bash(npx vercel:*)",
+      "Bash(vercel:*)",
+      "Bash(pnpm install:*)",
+      "Bash(npm ls:*)",
+      "Bash(git push:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

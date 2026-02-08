@@ -24,7 +24,7 @@ import { GoogleColab } from "@/components/ui/svgs/googlecolab";
 export const DATA = {
   name: "Joshua Alvarez",
   initials: "JA",
-  url: "https://joshuaalvarez.dev",
+  url: "https://portfolio-booswaa.vercel.app/",
   location: "Philippines",
   locationLink: "https://www.google.com/maps/place/philippines",
   description:

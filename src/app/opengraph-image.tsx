@@ -57,14 +57,6 @@ const styles = {
         border: "1px solid #e5e5e5",
         borderRadius: "12px",
     },
-    imageSection: {
-        position: "absolute",
-        top: "40px",
-        left: "40px",
-        display: "flex",
-        alignItems: "center",
-        zIndex: "2",
-    },
     mainContainer: {
         display: "flex",
         flexDirection: "column",
@@ -74,13 +66,6 @@ const styles = {
         width: "100%",
         position: "relative",
         zIndex: "1",
-    },
-    image: {
-        width: "140px",
-        height: "140px",
-        borderRadius: "24px",
-        border: "4px solid #e5e5e5",
-        objectFit: "cover",
     },
     title: {
         fontFamily: "Clash Display",
@@ -108,20 +93,11 @@ const styles = {
 export default async function Image() {
     try {
         const fontData = await getFontData();
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
-
         return new ImageResponse(
             (
                 <div style={styles.outerWrapper}>
                     <div style={styles.middleWrapper}>
                         <div style={styles.wrapper}>
-                            {imageUrl && (
-                                <div style={styles.imageSection}>
-                                    <img src={imageUrl} alt={DATA.name} style={styles.image} />
-                                </div>
-                            )}
                             <div style={styles.mainContainer}>
                                 <div style={styles.title}>{DATA.name}</div>
                                 {DATA.description && (

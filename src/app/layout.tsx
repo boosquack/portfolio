@@ -1,3 +1,5 @@
+import CursorFollow from "@/components/cursor-follow";
+import Footer from "@/components/footer";
 import HighlighterCanvas from "@/components/highlighter-canvas";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -5,19 +7,26 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["400", "500", "600", "700"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-mono",
+});
+
+const sourceSerif4 = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -66,21 +75,20 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          inter.variable,
-          jetbrainsMono.variable
+          geist.variable,
+          geistMono.variable,
+          sourceSerif4.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            <div className="root-grid">
-              <Navbar />
-              <main className="main-content">
-                {children}
-              </main>
-            </div>
+            <Navbar />
+            <main className="site-shell">{children}</main>
+            <Footer />
           </TooltipProvider>
         </ThemeProvider>
         <HighlighterCanvas />
+        <CursorFollow />
       </body>
     </html>
   );

@@ -5,6 +5,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), "Geist Mono", monospace;
+  --font-serif: var(--font-serif), Georgia, "Times New Roman", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -152,77 +155,247 @@
 }
 
 /* ========================================
-   GRID LAYOUT SYSTEM
+   PAGE SHELL - sticky top nav + centered column
    ======================================== */
 
-.root-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 100vh;
-}
-
-@media (min-width: 1024px) {
-  .root-grid {
-    grid-template-columns: 200px 1fr;
-  }
-}
-
-@media (min-width: 1280px) {
-  .root-grid {
-    /* Sidebar | Gap | Content (~520px) | Right space */
-    grid-template-columns: 200px 25% minmax(0, 600px) 1fr;
-  }
-}
-
-/* Sidebar Header */
-.sidebar-header {
+.site-header {
   display: none;
 }
 
 @media (min-width: 1024px) {
-  .sidebar-header {
+  .site-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    padding: var(--cell-padding);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 50;
+    padding: 20px 24px;
+    gap: 24px;
     background: var(--background);
-    grid-column: 1;
+    border-bottom: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+    height: 64px;
+    min-height: 32px;
   }
 }
 
-/* Main Content */
-.main-content {
+.site-header-inner {
+  max-width: 1800px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.site-header-end {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-header-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  line-height: 1.25;
+}
+
+.site-header-name-text {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.site-header-role {
+  font-family: var(--font-mono), monospace;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-nav a {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  padding: 4px 2px;
+}
+
+.site-nav a.site-nav-active {
+  color: var(--muted-foreground);
+}
+
+.site-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Centered content column */
+.site-shell {
+  max-width: 1800px;
+  margin: 0 auto;
   min-height: 100vh;
-  padding-bottom: 80px;
+  padding: 0 var(--cell-padding) 80px;
 }
 
 @media (min-width: 1024px) {
-  .main-content {
+  .site-shell {
     padding-bottom: 0;
-    grid-column: 2;
   }
 }
 
-@media (min-width: 1280px) {
-  .main-content {
-    grid-column: 3;
-    max-width: 600px;
+/* Hero - two column: copy left, timeline right */
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 26vh;
+    align-items: start;
   }
 }
 
-/* Hero section - fluid, breaks the grid */
-.hero-section {
-  padding: var(--cell-padding);
-  padding-top: 60px;
-  padding-bottom: 80px;
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1.18;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
 }
 
-/* Regular content sections - follow the grid */
+@media (min-width: 640px) {
+  .hero-headline {
+    font-size: 56px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: none;
+  }
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 400;
+  padding-bottom: 0.06em;
+  display: inline-block;
+}
+
+.hero-subtext {
+  margin-top: 20px;
+  max-width: 42ch;
+  color: var(--muted-foreground);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-timeline-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .hero-timeline-item {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+}
+
+.hero-timeline-year {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  width: 104px;
+  min-width: 104px;
+}
+
+.hero-timeline-company {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--foreground);
+  width: 224px;
+  min-width: 224px;
+}
+
+.hero-timeline-role {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+/* Regular content sections */
 .content-section {
-  padding: var(--cell-padding);
+  padding: var(--cell-padding) 0;
+}
+
+/* Global footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+.site-footer-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 24px var(--cell-padding) 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+  .site-footer-inner {
+    padding-bottom: 24px;
+  }
+}
+
+.site-footer-credit {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.site-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 /* ========================================
@@ -248,7 +421,7 @@
 
 /* Monospace for metadata */
 .font-mono-meta {
-  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-family: var(--font-mono), "Geist Mono", monospace;
   font-size: 14px;
   letter-spacing: -0.01em;
   line-height: 1.4;
@@ -306,27 +479,83 @@
 }
 
 /* ========================================
-   PROJECT CARDS GRID
+   PROJECT MASONRY GRID
    ======================================== */
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+.masonry-grid {
+  columns: 1;
+  column-gap: 28px;
 }
 
 @media (min-width: 640px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .masonry-grid {
+    columns: 2;
   }
 }
 
-.project-card {
-  padding: var(--cell-padding);
-  transition: background-color 0.15s ease;
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 32px;
 }
 
-.project-card:hover {
-  background-color: var(--muted);
+.project-card-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--foreground);
+}
+
+.project-card-meta {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+/* ========================================
+   CUSTOM CURSOR
+   ======================================== */
+
+html.cursor-none-active,
+html.cursor-none-active * {
+  cursor: none;
+}
+
+.cursor-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000; /* one above HighlighterCanvas's fixed overlay (9999) */
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--foreground);
+  opacity: 0.6;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-out;
+}
+
+.cursor-pill {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  background: #FFF176; /* same highlighter yellow as HighlighterCanvas's HIGHLIGHT_COLOR */
+  color: #1A1A1A;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-out;
 }
 

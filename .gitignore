@@ -40,3 +40,6 @@ next-env.d.ts
 .content-collections
 
 .vercel
+
+# playwright mcp debug output
+.playwright-mcp/

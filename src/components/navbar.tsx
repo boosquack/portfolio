@@ -11,7 +11,11 @@ const navItems: NavItem[] = [
   { href: "/", label: "Work" },
   { href: "/fun", label: "Fun" },
   { href: "/about", label: "About Me" },
-  { href: "/resume.pdf", label: "Resume", external: true }, // TODO: resume PDF not yet supplied
+  {
+    href: "https://docs.google.com/document/d/1x19YGJlQSojIWc45jxIlWqeLazrIMuwa2XBdp25iFn4/edit?usp=sharing",
+    label: "Resume",
+    external: true,
+  },
 ];
 
 function isActive(pathname: string, href: string) {

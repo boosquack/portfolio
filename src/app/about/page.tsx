@@ -59,29 +59,12 @@ export default function AboutPage() {
 
       <section className="content-section">
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
-          <h2 className="section-title">Skills</h2>
-          <p className="section-desc">Technologies and tools I work with.</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {DATA.skills.map((skill) => (
-              <span
-                key={skill.name}
-                className="font-mono-meta text-muted-foreground"
-              >
-                {skill.name}
-              </span>
-            ))}
-          </div>
-        </BlurFade>
-      </section>
-
-      <section className="content-section">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <HackathonsSection />
         </BlurFade>
       </section>
 
       <section className="content-section">
-        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+        <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="section-title">Education</h2>
           <p className="section-desc">Where I studied and what I learned.</p>
           <div>

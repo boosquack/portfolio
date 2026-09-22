@@ -508,26 +508,8 @@
 }
 
 /* ========================================
-   PROJECT MASONRY GRID
+   PROJECT CARDS
    ======================================== */
-
-.masonry-grid {
-  columns: 1;
-  column-gap: 28px;
-}
-
-@media (min-width: 640px) {
-  .masonry-grid {
-    columns: 2;
-  }
-}
-
-.masonry-item {
-  display: inline-block;
-  width: 100%;
-  break-inside: avoid;
-  margin-bottom: 32px;
-}
 
 .project-card-title {
   font-family: var(--font-serif);

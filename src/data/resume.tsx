@@ -152,9 +152,28 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Naya",
+      href: "https://nayaph.tech",
+      dates: "Beta",
+      status: undefined,
+      active: true,
+      image: "/naya-cover.jpg",
+      video: "",
+    },
+    {
+      title: "Gabaypoz",
+      href: "https://tpp.dataengineering.ph/project-gabaypoz#timeline",
+      dates: "August 2026",
+      status: undefined,
+      active: true,
+      image: "/gabaypoz-cover.png",
+      video: "",
+    },
+    {
       title: "Atuna",
-      href: "https://github.com/boosquack/front-end-sibol",
+      href: "",
       dates: "Jan 2024 - Feb 2024",
+      status: "PropEstate 2025",
       active: true,
       description:
         "Atuna is Real Estate perfect for the Property Managers, Agents, and Brokers. It helps them to get more leads and automate tasks.",
@@ -182,6 +201,7 @@ export const DATA = {
       title: "Co-Chain",
       href: "",
       dates: "Ongoing since September 2025",
+      status: "Byteforward 2025",
       active: true,
       description:
         "Developed an AI-assisted Product Spoilage Tracking System for the Cold Storage industry using IoT and Logistics. The system utilizes sensors to monitor temperature and humidity levels in real-time, ensuring optimal storage conditions and preventing spoilage. Implemented a user-friendly dashboard for tracking product status, generating alerts for potential issues, and providing insights to optimize inventory management.",
@@ -197,62 +217,6 @@ export const DATA = {
       ],
       image: "",
       video: "/videos/cochain-demo.mp4",
-    },
-    {
-      title: "Project AirBNB",
-      href: "https://project-airbnb-nu.vercel.app/",
-      dates: "January 2026",
-      active: true,
-      description:
-        "Created a full-stack Airbnb clone using Next.js, Typescript, TailwindCSS, PostgreSQL, Stripe, Shadcn UI, and Magic UI. The application allows users to browse and book accommodations, manage reservations, and handle payments securely. Implemented features such as user authentication, property listings, search functionality, and a responsive design for an optimal user experience across devices.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "TailwindCSS",
-        "PostgreSQL",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://project-airbnb-nu.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/boosquack/project-airbnb",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "/videos/airbnb-demo.mp4",
-    },
-  
-    {
-      title: "Portfolio",
-      href: "./",
-      dates: "January 2026",
-      active: true,
-      description:
-        "Created my personal portfolio website that showcase my aesthetic and brand while also demonstrating my skills as a UX Designer and Software Engineer.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "TailwindCSS",
-        "Magic UI",
-        "React",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/portfolio-demo.png",
-      video: "",
     },
   ],
   hackathons: [

@@ -32,11 +32,6 @@ export const DATA = {
   summary:
     "I create experiences that feel effortless and perform flawlessly.",
   avatarUrl: "/me.png",
-  bio: [
-    "I'm a UX Designer and Software Engineer based in the Philippines with a passion for creating intuitive digital experiences. I specialize in blending design thinking with technical expertise to build meaningful products that make a difference.",
-    "Currently pursuing my Computer Science degree. I've been actively participating in hackathons and building projects that solve real-world problems. My approach is marked by curiosity and a commitment to quality and performance.",
-    "Outside of coding and design, I enjoy exploring new technologies, collaborating with fellow creators, and continuously learning to stay at the forefront of the ever-evolving tech landscape.",
-  ],
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
@@ -92,6 +87,17 @@ export const DATA = {
   },
 
   work: [
+    {
+      company: "FlyRank",
+      href: "",
+      badges: [],
+      location: "Philippines",
+      title: "Backend AI Engineering Intern",
+      logoUrl: "",
+      start: "2026",
+      end: "2026",
+      description: "",
+    },
     {
       company: "Eskwelabs",
       href: "",
